@@ -5,12 +5,13 @@ import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
-export default NextAuth({
+const handler=NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [
         GoogleProviders({
         clientId: process.env.GOOGLE_CLIENT_ID as string,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
       }),
-    ],
-  })
+    ]
+})
+export {handler as GET, handler as POST}
