@@ -4,9 +4,9 @@ import { AddCartType } from '@/types/AddCardType'
 type CartItem={
     name:string,
     id:string,
-    image?:string[],
+    image:string,
     description?:string,
-    unit_amount:number,
+    unit_amount:number | null,
     quantity:number
 }
 
