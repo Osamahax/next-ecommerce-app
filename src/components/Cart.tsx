@@ -7,6 +7,11 @@ import {IoAddCircle,IoRemoveCircle} from "react-icons/io5"
 import basket from "public/basket.png"
 const Cart = () => {
   const cartStore = useCartStore();
+
+  //Total Price
+  const totalPrice=cartStore.cart.reduce((acc,item)=>{
+    return acc+item.unit_amount!*item.quantity
+  },0)
   return (
     <div
       onClick={() => cartStore.toggleCart()}
@@ -29,6 +34,10 @@ const Cart = () => {
             </div>
         ))
         }
+        {/*Checkout and totalPrice*/}
+        {cartStore.cart.length>0 &&(
+          <p>Total: {formatPrice(totalPrice)}</p>
+        )}
         {
           cartStore.cart.length > 0 && (
             <button className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">Checkout</button>
@@ -41,7 +50,6 @@ const Cart = () => {
             <Image src={basket} alt="basket" width={200} height={200} />
           </div>
         )
-
         }
       </div>
     </div>
