@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCartStore } from "@/store/store";
 import formatPrice from "@/util/PriceFormat";
 import {IoAddCircle,IoRemoveCircle} from "react-icons/io5"
-import basket from "public/basket.png"
+// import basket from "public/basket.png"
 import { AnimatePresence, motion } from "framer-motion";
 
 const Cart = () => {
@@ -57,7 +57,7 @@ const Cart = () => {
               exit={{scale:0,rotateZ:-10,opacity:0}}
               className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75">
               <h1>Uhhh ohhh... it's empty 😥</h1>
-              <Image src={basket} alt="basket" width={200} height={200} />
+              <Image src="/basket.png" alt="basket" width={200} height={200} />
             </motion.div>
           )
           }
