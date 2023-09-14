@@ -20,7 +20,15 @@ const Checkout=()=>{
                 items:cartStore.cart,
                 payment_intent_id:cartStore.paymentIntent,
             })
+        }).then((res)=>{
+            console.log(res)
+            //Set client secret and the payment intent associated with it
         })
     },[])
+    return(
+        <div>
+            <h1>CheckOut</h1>
+        </div>
+    )
 }
 export default Checkout
